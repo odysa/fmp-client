@@ -1,35 +1,23 @@
 """Financial metrics and ratios API endpoints."""
 
-from fmp_client._types import JSONArray, Period
+from fmp_client._types import JSONArray
 
 
 class MetricsMixin:
     """Financial metrics and ratios endpoints."""
 
-    async def key_metrics(
-        self,
-        symbol: str,
-        *,
-        period: Period = Period.ANNUAL,
-        limit: int | None = None,
-    ) -> JSONArray:
+    async def key_metrics(self, symbol: str) -> JSONArray:
         """Get key financial metrics."""
         return await self._request(  # type: ignore[attr-defined]
             "key-metrics",
-            params={"symbol": symbol, "period": period, "limit": limit},
+            params={"symbol": symbol},
         )
 
-    async def ratios(
-        self,
-        symbol: str,
-        *,
-        period: Period = Period.ANNUAL,
-        limit: int | None = None,
-    ) -> JSONArray:
+    async def ratios(self, symbol: str) -> JSONArray:
         """Get financial ratios."""
         return await self._request(  # type: ignore[attr-defined]
             "ratios",
-            params={"symbol": symbol, "period": period, "limit": limit},
+            params={"symbol": symbol},
         )
 
     async def key_metrics_ttm(self, symbol: str) -> JSONArray:

@@ -31,3 +31,7 @@ class ESGMixin:
     async def commitment_of_traders_analysis(self) -> JSONArray:
         """Get COT analysis by dates."""
         return await self._request("commitment-of-traders-analysis")  # type: ignore[attr-defined]
+
+    async def commitment_of_traders_list(self) -> JSONArray:
+        """Get list of Commitment of Traders symbols."""
+        return await self._request("commitment-of-traders-list")  # type: ignore[attr-defined]

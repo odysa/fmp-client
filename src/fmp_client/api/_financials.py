@@ -71,13 +71,14 @@ class FinancialsMixin:
     async def latest_financial_statements(
         self,
         *,
+        symbol: str | None = None,
         page: int | None = None,
         limit: int | None = None,
     ) -> JSONArray:
         """Get latest financial statements across all companies."""
         return await self._request(  # type: ignore[attr-defined]
             "latest-financial-statements",
-            params={"page": page, "limit": limit},
+            params={"symbol": symbol, "page": page, "limit": limit},
         )
 
     async def income_statement_growth(
@@ -271,4 +272,40 @@ class FinancialsMixin:
         return await self._request(  # type: ignore[attr-defined]
             "financial-reports-xlsx",
             params={"symbol": symbol, "year": year, "period": period},
+        )
+
+    async def income_statement_growth_bulk(
+        self,
+        year: int,
+        *,
+        period: Period = Period.ANNUAL,
+    ) -> JSONArray:
+        """Get bulk income statement growth data."""
+        return await self._request(  # type: ignore[attr-defined]
+            "income-statement-growth-bulk",
+            params={"year": year, "period": period},
+        )
+
+    async def balance_sheet_statement_growth_bulk(
+        self,
+        year: int,
+        *,
+        period: Period = Period.ANNUAL,
+    ) -> JSONArray:
+        """Get bulk balance sheet statement growth data."""
+        return await self._request(  # type: ignore[attr-defined]
+            "balance-sheet-statement-growth-bulk",
+            params={"year": year, "period": period},
+        )
+
+    async def cash_flow_statement_growth_bulk(
+        self,
+        year: int,
+        *,
+        period: Period = Period.ANNUAL,
+    ) -> JSONArray:
+        """Get bulk cash flow statement growth data."""
+        return await self._request(  # type: ignore[attr-defined]
+            "cash-flow-statement-growth-bulk",
+            params={"year": year, "period": period},
         )

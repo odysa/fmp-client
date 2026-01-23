@@ -48,23 +48,28 @@ class ETFMixin:
             params={"symbol": symbol},
         )
 
-    async def funds_disclosure(self, symbol: str) -> JSONArray:
+    async def funds_disclosure(
+        self,
+        symbol: str,
+        *,
+        year: int | None = None,
+        quarter: int | None = None,
+    ) -> JSONArray:
         """Get fund disclosure data."""
         return await self._request(  # type: ignore[attr-defined]
             "funds/disclosure",
-            params={"symbol": symbol},
+            params={"symbol": symbol, "year": year, "quarter": quarter},
         )
 
     async def funds_disclosure_holders_search(
         self,
         *,
-        symbol: str | None = None,
-        cik: str | None = None,
+        name: str | None = None,
     ) -> JSONArray:
         """Search fund disclosure holders."""
         return await self._request(  # type: ignore[attr-defined]
             "funds/disclosure-holders-search",
-            params={"symbol": symbol, "cik": cik},
+            params={"name": name},
         )
 
     async def funds_disclosure_dates(self, symbol: str) -> JSONArray:

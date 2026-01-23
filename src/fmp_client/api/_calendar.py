@@ -13,17 +13,9 @@ class CalendarMixin:
             params={"symbol": symbol},
         )
 
-    async def dividends_calendar(
-        self,
-        *,
-        from_date: str | None = None,
-        to_date: str | None = None,
-    ) -> JSONArray:
+    async def dividends_calendar(self) -> JSONArray:
         """Get upcoming dividend calendar."""
-        return await self._request(  # type: ignore[attr-defined]
-            "dividends-calendar",
-            params={"from": from_date, "to": to_date},
-        )
+        return await self._request("dividends-calendar")  # type: ignore[attr-defined]
 
     async def splits(self, symbol: str) -> JSONArray:
         """Get stock split history."""
@@ -32,17 +24,9 @@ class CalendarMixin:
             params={"symbol": symbol},
         )
 
-    async def splits_calendar(
-        self,
-        *,
-        from_date: str | None = None,
-        to_date: str | None = None,
-    ) -> JSONArray:
+    async def splits_calendar(self) -> JSONArray:
         """Get upcoming stock splits calendar."""
-        return await self._request(  # type: ignore[attr-defined]
-            "splits-calendar",
-            params={"from": from_date, "to": to_date},
-        )
+        return await self._request("splits-calendar")  # type: ignore[attr-defined]
 
     async def earnings(self, symbol: str) -> JSONArray:
         """Get earnings data for a company."""
@@ -51,24 +35,13 @@ class CalendarMixin:
             params={"symbol": symbol},
         )
 
-    async def earnings_calendar(
-        self,
-        *,
-        from_date: str | None = None,
-        to_date: str | None = None,
-    ) -> JSONArray:
+    async def earnings_calendar(self) -> JSONArray:
         """Get upcoming earnings calendar."""
-        return await self._request(  # type: ignore[attr-defined]
-            "earnings-calendar",
-            params={"from": from_date, "to": to_date},
-        )
+        return await self._request("earnings-calendar")  # type: ignore[attr-defined]
 
-    async def earning_call_transcript_latest(self, symbol: str) -> JSONArray:
+    async def earning_call_transcript_latest(self) -> JSONArray:
         """Get latest earnings call transcript."""
-        return await self._request(  # type: ignore[attr-defined]
-            "earning-call-transcript-latest",
-            params={"symbol": symbol},
-        )
+        return await self._request("earning-call-transcript-latest")  # type: ignore[attr-defined]
 
     async def earning_call_transcript(
         self,
@@ -96,26 +69,10 @@ class CalendarMixin:
             "earnings-transcript-list",
         )
 
-    async def ipos_calendar(
-        self,
-        *,
-        from_date: str | None = None,
-        to_date: str | None = None,
-    ) -> JSONArray:
+    async def ipos_calendar(self) -> JSONArray:
         """Get IPO calendar."""
-        return await self._request(  # type: ignore[attr-defined]
-            "ipos-calendar",
-            params={"from": from_date, "to": to_date},
-        )
+        return await self._request("ipos-calendar")  # type: ignore[attr-defined]
 
-    async def ipos_disclosure(
-        self,
-        *,
-        from_date: str | None = None,
-        to_date: str | None = None,
-    ) -> JSONArray:
+    async def ipos_disclosure(self) -> JSONArray:
         """Get IPO disclosure data."""
-        return await self._request(  # type: ignore[attr-defined]
-            "ipos-disclosure",
-            params={"from": from_date, "to": to_date},
-        )
+        return await self._request("ipos-disclosure")  # type: ignore[attr-defined]

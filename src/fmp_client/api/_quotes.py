@@ -76,37 +76,26 @@ class QuotesMixin:
             params={"exchange": exchange},
         )
 
-    async def batch_mutualfund_quotes(self, symbols: str) -> JSONArray:
-        """Get mutual fund quotes for multiple symbols."""
-        return await self._request(  # type: ignore[attr-defined]
-            "batch-mutualfund-quotes",
-            params={"symbols": symbols},
-        )
+    async def batch_mutualfund_quotes(self) -> JSONArray:
+        """Get mutual fund quotes."""
+        return await self._request("batch-mutualfund-quotes")  # type: ignore[attr-defined]
 
-    async def batch_etf_quotes(self, symbols: str) -> JSONArray:
-        """Get ETF quotes for multiple symbols."""
-        return await self._request(  # type: ignore[attr-defined]
-            "batch-etf-quotes",
-            params={"symbols": symbols},
-        )
+    async def batch_etf_quotes(self) -> JSONArray:
+        """Get ETF quotes."""
+        return await self._request("batch-etf-quotes")  # type: ignore[attr-defined]
 
-    async def batch_commodity_quotes(self, symbols: str) -> JSONArray:
-        """Get commodity quotes for multiple symbols."""
-        return await self._request(  # type: ignore[attr-defined]
-            "batch-commodity-quotes",
-            params={"symbols": symbols},
-        )
+    async def batch_commodity_quotes(self) -> JSONArray:
+        """Get commodity quotes."""
+        return await self._request("batch-commodity-quotes")  # type: ignore[attr-defined]
 
-    async def batch_crypto_quotes(self, symbols: str) -> JSONArray:
-        """Get cryptocurrency quotes for multiple symbols."""
-        return await self._request(  # type: ignore[attr-defined]
-            "batch-crypto-quotes",
-            params={"symbols": symbols},
-        )
+    async def batch_crypto_quotes(self) -> JSONArray:
+        """Get cryptocurrency quotes."""
+        return await self._request("batch-crypto-quotes")  # type: ignore[attr-defined]
 
-    async def batch_forex_quotes(self, symbols: str) -> JSONArray:
-        """Get forex quotes for multiple pairs."""
-        return await self._request(  # type: ignore[attr-defined]
-            "batch-forex-quotes",
-            params={"symbols": symbols},
-        )
+    async def batch_forex_quotes(self) -> JSONArray:
+        """Get forex quotes."""
+        return await self._request("batch-forex-quotes")  # type: ignore[attr-defined]
+
+    async def batch_index_quotes(self) -> JSONArray:
+        """Get index quotes."""
+        return await self._request("batch-index-quotes")  # type: ignore[attr-defined]
