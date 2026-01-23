@@ -1,5 +1,5 @@
 [project]
-name = "pyfmp"
+name = "fmp-client"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -8,6 +8,9 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = []
+
+[dependency-groups]
+dev = ["ruff>=0.11", "ty>=0.0.1a7"]
 
 [build-system]
 requires = ["uv_build>=0.9.26,<0.10.0"]
