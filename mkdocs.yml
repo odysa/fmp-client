@@ -1,0 +1,102 @@
+site_name: FMP Client
+site_description: Async Python client for Financial Modeling Prep API
+site_url: https://fmp-client.readthedocs.io
+repo_url: https://github.com/cbian/fmp-client
+repo_name: cbian/fmp-client
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: true
+            show_root_heading: true
+            members_order: source
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quickstart.md
+      - Configuration: getting-started/configuration.md
+  - API Reference:
+      - Overview: api/overview.md
+      - Search: api/search.md
+      - Company: api/company.md
+      - Financials: api/financials.md
+      - Metrics: api/metrics.md
+      - Quotes: api/quotes.md
+      - Historical: api/historical.md
+      - Calendar: api/calendar.md
+      - Market: api/market.md
+      - News: api/news.md
+      - Sector: api/sector.md
+      - Movers: api/movers.md
+      - Valuation: api/valuation.md
+      - Technical: api/technical.md
+      - ETF: api/etf.md
+      - Insider: api/insider.md
+      - SEC: api/sec.md
+      - Economics: api/economics.md
+      - Government: api/government.md
+      - ESG: api/esg.md
+      - Crowdfunding: api/crowdfunding.md
+      - Mergers: api/mergers.md
+      - Bulk: api/bulk.md
+  - Examples:
+      - Basic Usage: examples/basic.md
+      - Financial Analysis: examples/financial-analysis.md
+      - Portfolio Tracking: examples/portfolio.md
+  - Exceptions: exceptions.md
+  - Types: types.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cbian/fmp-client
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/fmp-client/
