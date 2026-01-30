@@ -1,6 +1,6 @@
 """Financial statement response types."""
 
-from typing import Any, NotRequired, TypedDict
+from typing import NotRequired, TypedDict
 
 
 class IncomeStatement(TypedDict):
